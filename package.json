@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "API que responde a llamados desde el cliente y direcciona a la base de datos",
   "main": "src/index.js",
+  "engines": {
+    "node": ">=8.0.0"
+  },
   "scripts": {
     "clean": "rm -rf build && mkdir build",
     "test": "echo \"Error: no test specified\" && exit 1",
