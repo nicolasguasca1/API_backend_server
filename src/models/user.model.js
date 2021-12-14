@@ -1,5 +1,6 @@
 import mongoose, { Schema, model } from "mongoose";
 import bcrypt from "bcryptjs";
+import Role from './role.model';
 
 export const STATUS = ["activo", "inactivo"];
 let idTypeEnum = ["C.C", "PAS", "C.E", "NIT"];
@@ -43,16 +44,21 @@ const userSchema = new Schema(
       type: Boolean,
       default: true
     },
+    tokenVersion: {
+      type: Number,
+      default: 0,
+      required: false
+    },
     roles: [
       {
         ref: "Role",
-        type: mongoose.ObjectId
+        type: Schema.Types.ObjectId,
       }
     ],
     orders: [
       {
         ref: "Order",
-        type: mongoose.Schema.ObjectId
+        type: Schema.ObjectId
       }
     ]
   },
